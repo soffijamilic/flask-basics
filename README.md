@@ -70,7 +70,7 @@ def hello_world():
 Flask aplikacija se pokrece sledecom naredbom:
 
 ```shell
-flask --app app run --debug
+flask --app src.app run --debug
 ```
 
 Ovde `--debug` flag sluzi da obavesti flask da cemo praviti izmene na aplikaciji
