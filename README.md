@@ -75,3 +75,18 @@ flask --app app run --debug
 
 Ovde `--debug` flag sluzi da obavesti flask da cemo praviti izmene na aplikaciji
 i da zelimo da se server ponovo pokrene cim se naprave izmene.
+
+Naravno, mi necemo koristi minimalnu aplikaciju jer planiramo da koristimo i
+paket za testiranje koda pod nazivom `pytest`.
+
+Zato nas `app.py` fajl izgleda malo drugacije. Za bolje razumevanje flask paketa
+treba procitati
+[dokumentaciju](https://flask.palletsprojects.com/en/3.0.x/quickstart/).
+
+## Testiranje aplikacije
+
+U direktorijumu `tests` nalaze se python moduli koji treba da testiraju
+funkcionalnost nase aplikacije. Mi cemo praktikovati metodologiju koja se zove
+**TDD** _(eng. Test Driven Development)_, gde se prvo pisu testovi koji
+odredjuju zahteve koda, a zatim se pise kod tj. funkcionalnost koja te testove
+treba da polozi.
