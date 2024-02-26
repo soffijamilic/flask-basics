@@ -24,7 +24,7 @@ postigli potrebno je da instaliramo nase zavisnosti u necemu sto se zove
 Pocecemo tako sto cemo forkovati, a zatim i klonirati ovaj repozitorijum u nekom
 praznom direktorijumu gde imamo potpune privilegije (uglavnom je to disk D: na
 Windows sistemima). Kada uspesno kloniramo repozitorijum, otvoricemo instancu VS
-Code editora koriscenjem komande `cd <naziv repozitorijuma>`. Kada nam se otvori
+Code editora koriscenjem komande `code <naziv repozitorijuma>`. Kada nam se otvori
 VS Code, otvoricemo instancu terminala i iskucati sledece naredbe:
 
 ```shell
