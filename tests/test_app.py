@@ -32,5 +32,9 @@ def test_request_example(client):
 def test_count_words_in_sentence(client):
     res = client.get("/count-words", query_string={"sentence": "Hello World from IV-SI-3!"})
     assert res.status_code == 200
-    assert res.data == 4
-    
+    assert int(res.data) == 4
+
+def test_factorize_number(client):
+    res = client.get("/factorize", query_string={"number": 75})
+    assert res.status_code == 200
+    assert res.data == [3, 5, 5]
