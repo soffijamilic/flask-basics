@@ -1,7 +1,5 @@
 {
-    "python.testing.pytestArgs": ["flask-basics/tests"],
-    "python.testing.cwd": "flask-basics/tests",
+    "python.testing.pytestArgs": ["tests"],
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true,
-    "python.testing.autoTestDiscoverOnSaveEnabled": true
+    "python.testing.pytestEnabled": true
 }
