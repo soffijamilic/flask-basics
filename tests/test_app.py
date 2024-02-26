@@ -28,3 +28,9 @@ def test_request_example(client):
     response = client.get("/")
     assert response.status_code == 200
     assert b"Hello, World!" in response.data
+
+def test_count_words_in_sentence(client):
+    res = client.get("/count-words", query_string={"sentence": "Hello World from IV-SI-3!"})
+    assert res.status_code == 200
+    assert res.data == 4
+    
