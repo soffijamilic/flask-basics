@@ -1,5 +1,6 @@
-,answer,dummies,question
-0,42,Family|Love|Health,"What is the answer to life, the universe, and everything?"
-1,42,Family|Love|Health,"What is the answer to life, the universe, and everything?"
-2,42,Family|Love|Health,"What is the answer to life, the universe, and everything?"
-3,42,Family|Love|Health,"What is the answer to life, the universe, and everything?"
+,question,answer,dummies
+0,What is the capital of France?,Paris,London|Berlin|Madrid
+1,"What is the answer to life, the universe, and everything?",43,Family|Love|Health
+2,What is the chemical symbol for water?,H2O,CO2|NaCl|O2
+3,What is the largest planet in our solar system?,Jupiter,Saturn|Mars|Neptune
+4,What is the tallest mammal on Earth?,Giraffe,Elephant|Hippo|Rhino

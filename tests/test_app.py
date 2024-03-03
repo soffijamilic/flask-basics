@@ -87,5 +87,66 @@ def test_get_question(client):
 
 
 def test_get_question_by_id(client):
-    res = client.get("/question/1")
+    res = client.get("/question/5")
     assert res.status_code == 200
+
+
+def test_delete_question_by_id(client):
+    res = client.delete("/question/5")
+    assert res.status_code == 200
+
+
+def test_delete_question_by_id_not_found(client):
+    res = client.delete("/question/100")
+    assert res.status_code == 404
+
+
+def test_put_question_by_id(client):
+    question = {
+        "question": "What is the answer to life, the universe, and everything?",
+        "answer": 43,
+        "dummies": ["Family", "Love", "Health"],
+    }
+
+    res = client.put("/question/1", json=question)
+    assert res.status_code == 200
+
+
+def test_put_question_by_id_not_found(client):
+    question = {
+        "question": "What is the answer to life, the universe, and everything?",
+        "answer": 43,
+        "dummies": ["Family", "Love", "Health"],
+    }
+
+    res = client.put("/question/100", json=question)
+    assert res.status_code == 404
+
+
+def test_user_register_success(client):
+    res = client.post("/register", data={"username": "test", "password": "test"})
+    assert res.status_code == 201
+
+    # brisemo da bi test mogao da se ponovi
+    res = client.delete("/user", json={"username": "test"})
+    assert res.status_code == 200
+
+
+def test_user_register_fail(client):
+    res = client.post("/register", data={"username": "test", "password": "test"})
+    assert res.status_code == 201
+
+    res = client.post("/register", data={"username": "test", "password": "test"})
+    assert res.status_code == 409
+
+    res = client.delete("/user", json={"username": "test"})
+
+
+def test_user_login_success(client):
+    res = client.post("/login", data={"username": "test", "password": "test"})
+    assert res.status_code == 200
+
+
+def test_user_login_fail(client):
+    res = client.post("/login", data={"username": "test", "password": "wrong"})
+    assert res.status_code == 401
