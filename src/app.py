@@ -2,6 +2,7 @@ import os
 
 from flask import Flask, request
 
+import src.data as dal  # data access layer
 import src.functions as f
 
 
@@ -50,5 +51,23 @@ def create_app(test_config=None):
         if number is None:
             return {"message": "Missing parameter: number"}, 400
         return str(f.number_of_digits(int(number)))
+
+    @app.route("/question", methods=["GET", "POST"])
+    def question():
+
+        if request.method == "GET":
+            questions = dal.get_questions()
+            return questions.to_dict(orient="records")
+
+        if request.method == "POST":
+            json = request.json
+            json["dummies"] = "|".join(json["dummies"])
+            dal.add_question(json)
+            return "Created", 201
+
+    @app.route("/question/<int:id>", methods=["GET"])
+    def get_question(id):
+        question = dal.get_questions(id)
+        return question.to_dict()
 
     return app
