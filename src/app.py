@@ -65,13 +65,17 @@ def create_app(test_config=None):
             dal.add_question(json)
             return "Created", 201
 
-    @app.route("/question/<int:id>", methods=["GET"])
+    @app.route("/question/<int:id>", methods=["GET","DELETE"])
     def get_question(id):
         try:
             question = dal.get_questions(id)
         except:
             return "Not found", 404
-        return question.to_dict()
+        if request.method=="GET":
+            return question.to_dict()
+        if request.method=="DELETE":
+            dal.delete_question(id)
+            return "OK",200
 
     return app
 

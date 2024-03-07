@@ -19,3 +19,12 @@ def add_question(question):
     question = pd.DataFrame(question, index=[questions.index.max() + 1])
     questions = pd.concat([questions, question], axis=0, ignore_index=False)
     questions.to_csv("data/questions.csv")
+
+def delete_question(id):
+    try:
+        questions = pd.read_csv("data/questions.csv", header=0)
+    except FileNotFoundError:
+        print("No questions found.")
+        return
+    questions = questions.drop(int(id))
+    questions.to_csv("data/questions.csv")

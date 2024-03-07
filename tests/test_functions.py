@@ -8,3 +8,4 @@ def test_number_of_digits():
     assert f.number_of_digits(75) == 2
     assert f.number_of_digits(1) == 1
     assert f.number_of_digits(0) == 0
+
